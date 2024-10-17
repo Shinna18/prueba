@@ -1,0 +1,49 @@
+---
+import InputField from './InputField.astro';
+import SocialButton from './SocialButton.astro';
+const logo = '/ruta-a-tu-logo.png';  // Cambia esta ruta al logo que desees
+---
+
+<div class="form-container bg-black text-gris rounded-3xl shadow-xl w-full overflow-hidden max-w-xl z-10 relative">
+  <div class="md:flex w-full">
+    <div class="w-full py-10 px-5 md:px-10">
+      
+      <!-- Logo del formulario -->
+      <div class="text-center mb-6">
+        <img src={logo} alt="Logo" class="w-24 mx-auto mb-3">
+      </div>
+
+      <div class="text-center mb-10">
+        <h1 class="font-bold text-3xl">Iniciar Sesión</h1>
+        <p class="text-gris">Introduce tus credenciales</p>
+      </div>
+
+      <!-- Campo de correo electrónico -->
+      <InputField 
+        id="email" 
+        type="email" 
+        placeholder="Correo Electrónico" 
+        icon="mdi mdi-email-outline" 
+      />
+
+      <!-- Campo de contraseña con ícono de candado -->
+      <InputField 
+        id="password" 
+        type="password" 
+        placeholder="Contraseña" 
+        icon="mdi mdi-lock-outline" 
+      />
+
+      <!-- Botón de inicio de sesión -->
+      <div class="mb-5">
+        <button class="btn-primary block w-full max-w-xs mx-auto rounded-lg px-3 py-3 font-semibold transition duration-300 text-white">
+          INICIAR SESIÓN
+        </button>
+      </div>
+
+      <!-- Botón de inicio de sesión con Google -->
+      <SocialButton />
+
+    </div>
+  </div>
+</div>

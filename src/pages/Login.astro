@@ -1,0 +1,156 @@
+---
+import MenuDrop from "../components/DropMenu";  // Importa el menú si es necesario
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar Sesión</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet" />
+    <style>
+      /* Fondo con gradiente animado oscuro */
+      body {
+        background: linear-gradient(-45deg, #0D0D0D, #1F1B37, #2E2A52, #1A1A1A); /* Colores más oscuros */
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+      }
+
+      @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      /* Colores principales */
+      .text-gris {
+        color: #D1D5DB; /* Gris claro para los textos */
+      }
+
+      .input-field {
+        background-color: #1A1A1A; /* Fondo más oscuro para los inputs */
+        border-color: #333333; /* Borde oscuro */
+        color: #D1D5DB; /* Texto en gris claro */
+        transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      }
+
+      .input-field::placeholder {
+        color: #B5B5C6;
+      }
+
+      .input-field:focus {
+        border-color: #6A5FAC; /* Morado más claro al enfocar el input */
+        box-shadow: 0 0 10px 2px #6A5FAC; /* Brillo alrededor */
+        transform: scale(1.05); /* Animación de escala suave */
+        outline: none;
+      }
+
+      /* Botón interactivo */
+      .btn-primary {
+        background-color: #1A1A1A; /* Negro oscuro para el botón */
+        color: #FFFFFF; /* Texto blanco */
+        border: 2px solid #333333; /* Borde oscuro */
+        transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background-color: #6A5FAC; /* Cambia a morado más claro al hacer hover */
+        transform: scale(1.05); /* Efecto de agrandamiento */
+        box-shadow: 0 0 15px 2px #6A5FAC; /* Brillo */
+      }
+
+      .btn-primary:active {
+        background-color: #9A8FC3; /* Cambia a morado más claro al presionar */
+        border-color: #9A8FC3;
+      }
+
+      /* Botones de redes sociales */
+      .social-btn {
+        background-color: #1A1A1A; /* Fondo oscuro para los botones de redes sociales */
+        border: 2px solid #333333; /* Borde oscuro */
+        color: #D1D5DB;
+        transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .social-btn:hover {
+        background-color: #6A5FAC; /* Efecto hover */
+        transform: scale(1.05);
+        box-shadow: 0 0 15px 2px #6A5FAC; /* Brillo */
+      }
+
+      /* Sombras y efectos en el formulario */
+      .form-container {
+        background-color: #000000; /* Fondo negro */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Sombra pronunciada */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .form-container:hover {
+        transform: translateY(-5px); /* Eleva el formulario al pasar el mouse */
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7); /* Intensifica la sombra */
+      }
+    </style>
+  </head>
+  <body class="min-w-screen min-h-screen flex items-center justify-center relative">
+
+    <!-- Menú desplegable si es necesario -->
+    <MenuDrop label="Menú" client:load />
+
+    <!-- Contenedor del formulario de login -->
+    <div class="form-container bg-black text-gris rounded-3xl shadow-xl w-full overflow-hidden max-w-xl z-10 relative">
+        <div class="md:flex w-full">
+            <!-- Sección del formulario -->
+            <div class="w-full py-10 px-5 md:px-10">
+                
+                <!-- Espacio para el logo -->
+                <div class="text-center mb-6">
+                    <img src="/ruta-a-tu-logo.png" alt="Logo" class="w-24 mx-auto mb-3">
+                </div>
+
+                <div class="text-center mb-10">
+                    <h1 class="font-bold text-3xl">Iniciar Sesión</h1>
+                    <p class="text-gris">Introduce tus credenciales</p>
+                </div>
+
+                <!-- Campo de correo electrónico -->
+                <div class="mb-5">
+                    <label for="email" class="text-xs font-semibold px-1">Correo Electrónico</label>
+                    <div class="flex">
+                        <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                            <i class="mdi mdi-email-outline text-gray-400 text-lg"></i>
+                        </div>
+                        <input type="email" id="email" class="input-field w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2" placeholder="correo@ejemplo.com" required>
+                    </div>
+                </div>
+                
+                <!-- Campo de contraseña con ícono de candado -->
+                <div class="mb-12">
+                    <label for="password" class="text-xs font-semibold px-1">Contraseña</label>
+                    <div class="flex">
+                        <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                            <i class="mdi mdi-lock-outline text-gray-400 text-lg"></i> <!-- Ícono de candado -->
+                        </div>
+                        <input type="password" id="password" class="input-field w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2" placeholder="************" required>
+                    </div>
+                </div>
+
+                <!-- Botón de inicio de sesión -->
+                <div class="mb-5">
+                    <button class="btn-primary block w-full max-w-xs mx-auto rounded-lg px-3 py-3 font-semibold transition duration-300">
+                        INICIAR SESIÓN
+                    </button>
+                </div>
+
+                <!-- Opción de inicio de sesión con Google (con logo) -->
+                <div class="mt-5 text-center">
+                    <button class="social-btn w-full max-w-xs mx-auto flex items-center justify-center px-4 py-2 rounded-lg transition duration-300">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" class="w-6 h-6 mr-2" alt="Google Logo" />
+                        Iniciar sesión con Google
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </body>
+</html>
