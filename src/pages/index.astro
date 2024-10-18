@@ -1,5 +1,8 @@
 ---
 import MenuDrop from "../components/DropMenu";
+import Button from "../components/Button.astro";
+import Sidebar from "../components/Sidebar.jsx";
+import Header from "../components/Header.astro";
 ---
 
 <html lang="en">
@@ -11,7 +14,6 @@ import MenuDrop from "../components/DropMenu";
     <title>Astro</title>
   </head>
   <body>
-    <MenuDrop label="menu" client:load />
-    <h1>Astro</h1>
+    <Sidebar client:load />
   </body>
 </html>
