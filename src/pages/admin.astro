@@ -1,0 +1,15 @@
+---
+import AdminDashboard from '../components/AdminDashboard.jsx'; // Asegúrate de importar correctamente el componente
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de Administración</title>
+  </head>
+  <body>
+    <!-- Asegúrate de que el componente AdminDashboard solo se cargue en el cliente -->
+    <AdminDashboard client:only="react" />
+  </body>
+</html>
