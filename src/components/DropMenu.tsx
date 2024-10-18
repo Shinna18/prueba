@@ -1,51 +1,58 @@
-import { useState } from 'react'
+import React, { useState } from 'react';
+import { UserIcon, ChevronDownIcon, ChevronUpIcon, AcademicCapIcon, CreditCardIcon } from '@heroicons/react/24/outline';
 
-interface Props {
-  label: string
-}
+const UserDropdown: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-export default function MenuDrop({ label }: Props) {
-  const [isOpen, setIsOpen] = useState(false)
+  // Función para alternar el menú
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
-    <div>
+    <div className="w-full">
+      {/* Botón principal */}
       <button
-        className="flex gap-x-2 px-2 py-2"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={toggleMenu}
+        className="flex justify-between items-center w-full p-2 pl-2 pr-4 text-white hover:bg-gray-700 rounded-md"
       >
-        {label}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="size-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m19.5 8.25-7.5 7.5-7.5-7.5"
-          />
-        </svg>
+        <div className="flex items-center gap-2">
+          <UserIcon className="h-6 w-6" />
+          <span>Usuario</span>
+        </div>
+        {isOpen ? (
+          <ChevronUpIcon className="h-5 w-5 text-gray-300" />
+        ) : (
+          <ChevronDownIcon className="h-5 w-5 text-gray-300" />
+        )}
       </button>
 
+      {/* Menú desplegable debajo del botón */}
       {isOpen && (
-        <div className="absolute w-[400px] rounded border-[1px] border-gray-300 bg-white shadow-md">
-          <div className="cursor-pointer p-4 hover:bg-gray-300">
-            Acc settings
-          </div>
-          <div className="cursor-pointer p-4 hover:bg-gray-300">
-            Acc settings
-          </div>
-          <div className="cursor-pointer p-4 hover:bg-gray-300">
-            Acc settings
-          </div>
-          <div className="cursor-pointer p-4 hover:bg-gray-300">
-            Acc settings
+        <div className="mt-2 w-full rounded-md bg-gray-800 text-white">
+          <div className="py-1">
+            {/* Botón Activar Plan */}
+            <button
+              className="flex items-center gap-2 w-full px-4 py-2 text-sm hover:bg-gray-700"
+              onClick={() => alert('Activar Plan')}
+            >
+              <CreditCardIcon className="h-5 w-5 text-gray-300" />
+              Activar Plan
+            </button>
+
+            {/* Botón Activar Beca */}
+            <button
+              className="flex items-center gap-2 w-full px-4 py-2 text-sm hover:bg-gray-700"
+              onClick={() => alert('Activar Beca')}
+            >
+              <AcademicCapIcon className="h-5 w-5 text-gray-300" />
+              Activar Beca
+            </button>
           </div>
         </div>
       )}
     </div>
-  )
-}
+  );
+};
+
+export default UserDropdown;
