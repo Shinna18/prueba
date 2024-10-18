@@ -14,14 +14,11 @@
     "@astrojs/react": "^3.6.2",
     "@astrojs/tailwind": "^5.1.2",
     "@heroicons/react": "^2.1.5",
-<<<<<<< HEAD
     "apexcharts": "^3.54.1",
     "postcss": "^8.4.47",
-    "react-apexcharts": "^1.4.1"
-=======
+    "react-apexcharts": "^1.4.1",
     "react-router-dom": "^6.27.0",
     "tailwind-scrollbar-hide": "^1.1.7"
->>>>>>> 62852edd8e999b1238fb33d97f6089d7bfbdf300
   },
   "devDependencies": {
     "@types/react": "^18.3.11",
